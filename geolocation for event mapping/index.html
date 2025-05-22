@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Local Community Event Portal</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <button onclick="findNearby()">Find Nearby Events</button>
+<p id="locationOutput"></p>
+
+<script>
+    function findNearby() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    document.getElementById("locationOutput").textContent =
+                        "Latitude: " + pos.coords.latitude + ", Longitude: " + pos.coords.longitude;
+                },
+                (err) => {
+                    document.getElementById("locationOutput").textContent =
+                        "Error: " + err.message;
+                },
+                { enableHighAccuracy: true, timeout: 5000 }
+            );
+        } else {
+            document.getElementById("locationOutput").textContent = "Geolocation not supported.";
+        }
+    }
+</script>
+
+        
+    </body>
+</html>
