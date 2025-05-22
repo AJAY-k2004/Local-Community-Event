@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Local Community Event Portal</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <label>Phone: <input type="text" onblur="validatePhone(this)"></label><br>
+<label>Select Event:
+    <select onchange="showFee(this)">
+        <option value="0">Select...</option>
+        <option value="100">Music - ₹100</option>
+        <option value="200">Tech - ₹200</option>
+    </select>
+</label><br>
+<p id="feeDisplay"></p>
+<button onclick="alert('Thanks for your feedback!')">Submit</button><br>
+
+<img src="event1.jpg" ondblclick="this.style.width='300px'">
+
+<textarea onkeyup="countChars(this)" placeholder="Your feedback"></textarea>
+<p>Characters: <span id="charCount">0</span></p>
+
+<script>
+    function validatePhone(input) {
+        if (!/^\d{10}$/.test(input.value)) {
+            alert("Enter a valid 10-digit number.");
+        }
+    }
+    function showFee(select) {
+        document.getElementById("feeDisplay").textContent = "Fee: ₹" + select.value;
+    }
+    function countChars(textarea) {
+        document.getElementById("charCount").textContent = textarea.value.length;
+    }
+</script>
+
+    </body>
+        
+</html>
