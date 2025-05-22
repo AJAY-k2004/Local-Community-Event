@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Local Community Event Portal</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <!--Event form-->
+        <form onsubmit="showConfirmation(); return false;">
+            <label>Name: <input type="text" name="name" placeholder="Your Name" required autofocus></label><br>
+            <label>Email: <input type="email" name="email" placeholder="email" required></label><br>
+            <label>Date: <input type="date" name="date" required></label><br>
+            <label>Event Type:
+                <select name="eventType" id="eventType">
+                    <option value="sports">Sports</option>
+                    <option value="music">Music</option>
+                    <option value="tech">Tech</option>
+                </select>
+            </label><br>
+            <label>Message:<br>
+                <textarea placeholder="Any message..."></textarea>
+            </label><br>
+            <input type="submit" value="Register">
+            <output id="confirmation"></output>
+        </form>
+        
+        <script>
+            function showConfirmation() {
+                document.getElementById("confirmation").textContent = "Registration successful!";
+            }
+        </script>
+        
+    </body>
+</html>
