@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Local Community Event Portal</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <select id="eventSelect" onchange="savePreference()">
+            <option value="">-- Choose an Event Type --</option>
+            <option value="sports">Sports</option>
+            <option value="music">Music</option>
+            <option value="tech">Tech</option>
+        </select>
+        <button onclick="clearPreferences()">Clear Preferences</button>
+        
+        <script>
+            // Save to localStorage
+            function savePreference() {
+                const val = document.getElementById("eventSelect").value;
+                localStorage.setItem("preferredEvent", val);
+            }
+        
+            // On load, set the selected value
+            window.onload = function () {
+                const saved = localStorage.getItem("preferredEvent");
+                if (saved) {
+                    document.getElementById("eventSelect").value = saved;
+                }
+            };
+        
+            function clearPreferences() {
+                localStorage.clear();
+                sessionStorage.clear();
+                alert("Preferences cleared.");
+            }
+        </script>
+        
+        
+    </body>
+</html>
